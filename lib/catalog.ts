@@ -1,0 +1,401 @@
+export const categories = [
+  "DNS Tools",
+  "IP Tools",
+  "Dev Tools",
+  "Webmasters Tools",
+  "Network Tools",
+] as const;
+export type Category = (typeof categories)[number];
+const groups: [Category, string[][]][] = [
+  [
+    "DNS Tools",
+    [
+      [
+        "dns-checker",
+        "DNS Propagation",
+        "Compare DNS answers across public resolvers.",
+        "domain",
+      ],
+      [
+        "dns-validation",
+        "DNS Validation",
+        "Find configuration issues in your DNS records.",
+        "domain",
+      ],
+      [
+        "reverse-ip",
+        "Reverse IP Lookup",
+        "Find the hostname associated with an IP.",
+        "ip",
+      ],
+      [
+        "dns-lookup",
+        "DNS Lookup",
+        "Inspect the DNS records behind a domain.",
+        "domain",
+      ],
+      [
+        "cname",
+        "CNAME Lookup",
+        "Follow a domain’s canonical name records.",
+        "domain",
+      ],
+      [
+        "ns",
+        "NS Lookup",
+        "Find the nameservers responsible for a domain.",
+        "domain",
+      ],
+      [
+        "mx",
+        "MX Lookup",
+        "Find mail servers and delivery priorities.",
+        "domain",
+      ],
+      [
+        "spf",
+        "SPF Record Checker",
+        "Inspect sender policies and lookup limits.",
+        "domain",
+      ],
+      [
+        "dmarc",
+        "DMARC Checker",
+        "Check email policy, alignment and reporting.",
+        "domain",
+      ],
+      [
+        "health",
+        "Domain Health",
+        "Review DNS and email configuration together.",
+        "domain",
+      ],
+      [
+        "dmarc-generator",
+        "DMARC Generator",
+        "Create a DMARC record with guided settings.",
+        "local",
+      ],
+      [
+        "dnskey",
+        "DNSKEY Lookup",
+        "Inspect the public keys used by DNSSEC.",
+        "domain",
+      ],
+      ["ds", "DS Lookup", "Look up delegation signer records.", "domain"],
+      [
+        "dkim",
+        "DKIM Checker",
+        "Look up a domain’s email signing key.",
+        "domain",
+      ],
+    ],
+  ],
+  [
+    "IP Tools",
+    [
+      [
+        "ping-ipv4",
+        "Ping IPv4",
+        "Measure reachability and latency over IPv4.",
+        "probe",
+      ],
+      [
+        "ping-ipv6",
+        "Ping IPv6",
+        "Measure reachability and latency over IPv6.",
+        "probe",
+      ],
+      [
+        "my-ip",
+        "What Is My IP?",
+        "See your connection’s public IP address.",
+        "auto",
+      ],
+      [
+        "traceroute",
+        "Traceroute",
+        "Inspect network hops to an IP or domain.",
+        "probe",
+      ],
+      [
+        "ip-location",
+        "IP Location",
+        "Look up the approximate location of an IP.",
+        "ip",
+      ],
+      [
+        "email-header",
+        "Email Header Analyzer",
+        "Inspect mail routing and authentication.",
+        "local",
+      ],
+      [
+        "blacklist",
+        "Blacklist Check",
+        "Check an address against DNS blocklists.",
+        "ip",
+      ],
+      [
+        "ip-decimal",
+        "IP to Decimal",
+        "Convert an IP address to an integer.",
+        "local",
+      ],
+      [
+        "ip-hostname",
+        "IP to Hostname",
+        "Resolve reverse DNS for an IP address.",
+        "ip",
+      ],
+      [
+        "ip-whois",
+        "IP WHOIS Lookup",
+        "Find allocation and registration information.",
+        "ip",
+      ],
+      [
+        "ipv6-whois",
+        "IPv6 WHOIS Lookup",
+        "Inspect registration details for IPv6.",
+        "ip",
+      ],
+      [
+        "ipv4-ipv6",
+        "IPv4 to IPv6",
+        "Create an IPv4-mapped IPv6 representation.",
+        "local",
+      ],
+      [
+        "ipv6-generate",
+        "Local IPv6 Generator",
+        "Generate a random unique local IPv6 prefix.",
+        "local",
+      ],
+      [
+        "cidr-range",
+        "IPv6 CIDR to Range",
+        "Calculate an IPv6 network’s boundaries.",
+        "local",
+      ],
+      [
+        "range-cidr",
+        "IPv6 Range to CIDR",
+        "Represent an IPv6 range as CIDR blocks.",
+        "local",
+      ],
+      [
+        "ipv6-compress",
+        "IPv6 Compression",
+        "Shorten IPv6 addresses into canonical notation.",
+        "local",
+      ],
+      [
+        "ipv6-expand",
+        "IPv6 Expand",
+        "Expand all eight groups of an IPv6 address.",
+        "local",
+      ],
+      [
+        "subnet",
+        "IP Subnet Calculator",
+        "Calculate network ranges and host capacity.",
+        "local",
+      ],
+      [
+        "ipv6-ipv4",
+        "IPv6 to IPv4",
+        "Extract IPv4 from a mapped IPv6 address.",
+        "local",
+      ],
+      [
+        "ipv6-check",
+        "IPv6 Compatibility",
+        "Check IPv6 DNS and connectivity signals.",
+        "domain",
+      ],
+      [
+        "my-isp",
+        "What Is My ISP?",
+        "Identify the network behind your connection.",
+        "auto",
+      ],
+      [
+        "domain-ip",
+        "Domain to IP",
+        "Resolve a domain’s IPv4 and IPv6 addresses.",
+        "domain",
+      ],
+    ],
+  ],
+  [
+    "Dev Tools",
+    [
+      [
+        "headers",
+        "HTTP Headers",
+        "Inspect response headers and redirects.",
+        "url",
+      ],
+      [
+        "server-os",
+        "Website Server Software",
+        "Inspect the server signals a website exposes.",
+        "url",
+      ],
+      [
+        "md5-base64",
+        "MD5 & Base64",
+        "Hash or encode text in your browser.",
+        "local",
+      ],
+      [
+        "url-opener",
+        "Multi URL Opener",
+        "Prepare and open a list of website URLs.",
+        "local",
+      ],
+      [
+        "smtp",
+        "SMTP Test",
+        "Inspect mail server connectivity and capabilities.",
+        "probe",
+      ],
+      [
+        "htaccess",
+        "HTACCESS Redirect Generator",
+        "Generate Apache redirect rules.",
+        "local",
+      ],
+      [
+        "rewrite",
+        "URL Rewrite Generator",
+        "Create rules for clean URL patterns.",
+        "local",
+      ],
+      [
+        "broken-links",
+        "Broken Link Checker",
+        "Find unreachable links on a web page.",
+        "url",
+      ],
+      [
+        "open-graph",
+        "Open Graph Checker",
+        "Inspect social metadata and generate tags.",
+        "url",
+      ],
+      [
+        "raid",
+        "RAID Calculator",
+        "Estimate usable storage and fault tolerance.",
+        "local",
+      ],
+      [
+        "binary-text",
+        "Binary to Text",
+        "Decode binary bytes into UTF-8 text.",
+        "local",
+      ],
+      [
+        "text-binary",
+        "Text to Binary",
+        "Encode UTF-8 text as binary bytes.",
+        "local",
+      ],
+      [
+        "json",
+        "JSON Formatter",
+        "Validate, beautify and minify JSON.",
+        "local",
+      ],
+      [
+        "email-verify",
+        "Email Verifier",
+        "Check syntax and domain delivery signals.",
+        "email",
+      ],
+    ],
+  ],
+  [
+    "Webmasters Tools",
+    [
+      [
+        "link-analyzer",
+        "Website Link Analyzer",
+        "Inspect internal links, external links and anchors.",
+        "url",
+      ],
+      [
+        "user-agent",
+        "User Agent",
+        "Inspect browser and display information.",
+        "local",
+      ],
+      [
+        "pagerank",
+        "PageRank Checker",
+        "Check authoritative rank availability.",
+        "domain",
+      ],
+      [
+        "punycode",
+        "Punycode Converter",
+        "Convert international domain names to ASCII.",
+        "local",
+      ],
+      [
+        "serp",
+        "Google SERP Simulator",
+        "Preview a page title and search description.",
+        "local",
+      ],
+      [
+        "robots",
+        "Robots.txt Generator",
+        "Generate crawler and sitemap directives.",
+        "local",
+      ],
+    ],
+  ],
+  [
+    "Network Tools",
+    [
+      [
+        "port",
+        "Port Checker",
+        "Check whether a public TCP port accepts connections.",
+        "probe",
+      ],
+      [
+        "mac-lookup",
+        "MAC Address Lookup",
+        "Find the registered vendor for a MAC prefix.",
+        "text",
+      ],
+      [
+        "mac-generator",
+        "MAC Address Generator",
+        "Generate locally administered unicast addresses.",
+        "local",
+      ],
+      [
+        "asn",
+        "ASN WHOIS Lookup",
+        "Find autonomous system registration information.",
+        "text",
+      ],
+    ],
+  ],
+];
+export const tools = groups.flatMap(([category, rows]) =>
+  rows.map(([id, name, description, mode]) => ({
+    category,
+    id,
+    name,
+    description,
+    mode,
+  })),
+);
+export type Tool = (typeof tools)[number];
+export const popular = ["dns-checker", "dns-lookup", "my-ip"];

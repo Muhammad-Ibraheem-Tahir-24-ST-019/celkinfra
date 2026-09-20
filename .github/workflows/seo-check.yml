@@ -1,0 +1,28 @@
+name: SEO coverage
+
+# Asserts that all 60 catalogue tools have hand-written SEO/AEO content and that
+# every title and description stays within the length search engines render.
+# See SEO.md and scripts/check-seo-coverage.ts.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check SEO coverage
+        run: npm run seo:check
